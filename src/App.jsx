@@ -42,6 +42,11 @@ function App() {
     // Add more coffee items with image URLs
   ];
 
+  const shuffleCards = () => {
+    const shuffledCards = [...cards].sort(() => Math.random() - 0.5);
+    setCards(shuffledCards);
+  };
+
   // Function to get a random card from CoffeeArray
   const getRandomCard = () => {
     const randomIndex = Math.floor(Math.random() * CoffeeArray.length);
@@ -84,7 +89,8 @@ function App() {
         <button onClick={handleNewCard} style={{ marginLeft: "10px" }}>
           Next
         </button>
-        
+        <button className="shuffle" onClick={shuffleCards}>Shuffle</button>
+
       </div>
     </div>
   );
